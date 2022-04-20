@@ -1,0 +1,296 @@
+\documentclass[fleqn,a4paper,nobib]{tufte-handout}
+
+\input{include/preamble.tex}
+
+\title{Algèbre}
+\author{Tanguy Andreani}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+    Ce document contient des notes prises pour les livres
+    \underline{Algebra for College Students} (Lial, Hornsby, McGinnis)
+    et \underline{Algebra} (Gelfand).
+    
+    L'objectif est de comprendre un maximum le fonctionnement
+    de l'algèbre et des techniques qui en découlent ainsi
+    qu'apprendre à bien formater les démonstration en \LaTeX.
+\end{abstract}
+
+\tableofcontents
+
+\section{Introduction}
+
+\subsection{L'algèbre, l'algèbre linéaire, l'algèbre abstrait}
+
+
+
+Le mot algèbre désigne plein de choses. Comme d'habitude, la
+première étape est de lister les éventuels problèmes de traduction.
+
+\begin{quote}
+    L'algèbre est une branche des mathématiques qui permet d'exprimer les
+    propriétés des \textit{opérations} et le traitement des \textit{équations}
+    et aboutit à l'étude des \textit{structures algébriques}.
+\end{quote}
+
+J'imagine qu'en généralisant beaucoup, on parle d'objets indéfinis
+\sidenote{\footnotesize J'utilise \textit{indéfini} au sens où on formalise
+la notion d'objet, sans faire appelle à l'intuition type "\textit{mon objet
+est un nombre, ou un ensemble}", on reste abstrait.}
+sur lesquels des opérations sont possibles. D'où les mots comme
+\textit{groupe}, \textit{catégorie}, etc. de l'algèbre abstrait.
+Ce sont les structures algébriques.
+
+L'algèbre élémentaire est le sujet principal de ces notes.
+Là où l'arithmétique (théorie des nombres) se concentre sur les
+propriétés de nombre particuliers (les diviseurs par exemple),
+l'algèbre élémentaire étudie les opérations sur des nombres "en général".
+On étudie par exemple l'addition, la multiplication et
+on introduit le concept d'équation.
+
+Bien sûr, les deux sont sûrement interconnectés.
+
+L'objectif est d'avoir une approche \textit{problem-solving}.
+
+\section{Arithmétique basique}
+
+Le livre de Gelfand commence avec un mélange de théorie des
+nombres basique et d'algèbre.
+
+\greybox{
+    \subsection*{Rappel: l'addition et la multiplication sont commutatives}
+    
+    Donc on a $a + b = b + a$ et $ab = ba$.
+}
+
+\begin{exercise}
+    On veut obtenir 1000 en utilisant que des 8 et des $+$.
+\end{exercise}
+
+\begin{solution}
+    On pose l'addition en laissant vide certaines cases:
+
+    \probline{5}{...8}
+    \opline{$+$}{....}
+    \opline{$+$}{...8}
+    \soluline{1000}
+    % \begin{figure}[H]
+    %     \centering
+    %     \begin{tabular}{r}
+    %         $\hphantom{\dots}8$ \\
+    %         $+\hphantom{\dots}\hphantom{8}$ \\
+    %         $+\hphantom{\dots}8$ \\
+    %         \hline
+    %         $1000$
+    %     \end{tabular}
+    % \end{figure}
+        
+    Vu qu'on veut 0 en premier chiffre du résultat, on doit ajouter
+    8 5 fois, de manière à obtenir 40.
+
+    \probline{5}{...8}
+    \opline{$+$}{...8}
+    \opline{$+$}{...8}
+    \opline{$+$}{...8}
+    \opline{$+$}{...8}
+    \soluline{1000}
+    % \begin{figure}[H]
+    %     \centering
+    %     \begin{tabular}{r}
+    %             $\dots 8$ \\
+    %             $\dots 8$ \\
+    %             $\dots 8$ \\
+    %             $\dots 8$ \\
+    %             $\dots 8$ \\
+    %             \hline
+    %             $1000$
+    %     \end{tabular}
+    % \end{figure}
+
+
+    On remplie ensuite le tableau avec le même raisonnement vers la gauche.
+
+    \probline{5}{888}
+    \opline{$+$}{88}
+    \opline{$+$}{8}
+    \opline{$+$}{8}
+    \opline{$+$}{8}
+    \soluline{1000}
+    % \begin{figure}[H]
+    %     \centering
+    %     \begin{tabular}{r}
+    %         $888$ \\
+    %         $88$ \\
+    %         $8$ \\
+    %         $8$ \\
+    %         $8$ \\
+    %         \hline
+    %         $1000$
+    %     \end{tabular}
+    % \end{figure}
+\end{solution}
+
+\begin{exercise}
+    Trouver tous les termes de l'addition suivante (A, B et C sont distincts):
+
+    \probline{5}{aaa}
+    \opline{$+$}{bbb}
+    \soluline{aaac}
+    % \begin{figure}[H]
+    %     \centering
+    %     \begin{tabular}{r}
+    %         \texttt{AAA} \\
+    %         \texttt{BBB} \\
+    %         \hline
+    %         \texttt{AAAC}
+    %     \end{tabular}
+    % \end{figure}
+\end{exercise}
+
+\begin{solution}
+    A, B et C ne peuvent être égaux à 0. (A + B = 0, A + 0 = C, 0 + B = C sont
+    trois cas impossibles.)
+
+    On a A = 1 car la somme de deux nombres de trois chiffres
+    est forcéments strictement inférieure à 2000. Ici elle est
+    aussi supérieure à 1000.
+
+    On a donc
+
+    \probline{5}{111}
+    \opline{$+$}{bbb}
+    \soluline{111c}
+
+    % \begin{figure}[H]
+    %     \centering
+    %     \begin{tabular}{r}
+    %         \texttt{111} \\
+    %         \texttt{BBB} \\
+    %         \hline
+    %         \texttt{111C}
+    %     \end{tabular}
+    % \end{figure}
+
+    Comme 1 + B = 10, pour avoir la retenue, B = 9 et C = 0.
+
+    \probline{5}{111}
+    \opline{$+$}{999}
+    \soluline{1110}
+\end{solution}
+
+
+\section{Systèmes d'équations linéaires}
+
+\subsection{Méthode de substitution}
+
+Avant et pendant l'utilisation de la méthode de substitution,
+il peut-être nécessaire de préparer les équations, notemment
+en y supprimant les coefficients fractionnaires afin de
+simplifier les étapes suivantes.
+
+\begin{flalign*}
+    \systeme{
+        2x-y=6 @(a),
+        x=y+ 2 @(b)
+    }
+\end{flalign*}
+
+\begin{marginfigure}
+    \caption{\footnotesize Représentation du système d'équations}
+    \begin{tikzpicture}[]
+        \begin{axis}[xmin=0,
+            xmax=10,
+            ymin=0,
+            ymax=10,
+            width=6.5cm,
+            height=4cm,
+            grid=both,
+            legend cell align={left},
+            legend pos=south east]
+            \addplot[blue,name path global=plot1a,domain=0:10, thick] ({x},{2 * x - 6});
+            \addplot[red,name path global=plot1b, domain=0:10, thick] ({x},{x - 2});
+            \fill
+                [name intersections={of=plot1a and plot1b, name=i, total=\t}]
+                [orange, opacity=1]
+                \foreach \s in {1,...,\t}{(i-\s) circle[radius=2pt]};
+        \end{axis}
+    \end{tikzpicture}
+\end{marginfigure}
+
+\begin{enumerate}[label=\textit{Étape \arabic*.}]
+    \item{
+        \begin{flalign*}
+            2(y + 2) - y = 6
+        \end{flalign*}
+        Par $(a)$, $(b)$ et la propriété de substitution.}
+    \item{
+        \begin{align*}
+            2(y + 2) - y &= 6\\
+            \Leftrightarrow \qquad 2y + 4 - y &= 6 \tag*{propriété distributive}\\
+            \Leftrightarrow \qquad \qquad \qquad y &= 2
+        \end{align*}
+        Par simplification de $(1.)$}
+    \item{
+        \begin{align*}
+            x &= y + 2 \\
+            &= 4
+        \end{align*}
+        Par $(2.)$ et la propriété de substitution.}
+    \item{
+        $S = {(4, 2)}$ \\
+        Par $(2.)$ et $(3.)$}
+\end{enumerate}
+
+\subsection{Méthode par élimination}
+
+\begin{flalign*}
+    \systeme{
+        2x + 3y = -6 @(a),
+        4x - 3y = 6 @(b)
+    }
+\end{flalign*}
+\begin{marginfigure}
+    \caption{\footnotesize Représentation du système d'équations}
+    \begin{tikzpicture}[]
+        \begin{axis}[xmin=-3,
+            xmax=5,
+            ymin=-6,
+            ymax=2,
+            width=6.5cm,
+            height=4cm,
+            grid=both,
+            legend cell align={left},
+            legend pos=south east]
+            \addplot[name path=plot2a, blue, domain = -3:5] {-2/3 * x - 2};
+            \addplot[name path=plot2b, red, domain = -3:5] {4/3 * x - 2};
+            \fill
+                [name intersections={of=plot2a and plot2b, name=i, total=\t}]
+                [orange, opacity=1]
+                \foreach \s in {1,...,\t}{(i-\s) circle[radius=2pt]};
+        \end{axis}
+    \end{tikzpicture}
+\end{marginfigure}
+
+\begin{enumerate}[label=\textit{Étape \arabic*.}]
+    \item{
+        \begin{align*}
+            2x + 3y + (4x - 3y) &= -6 + 6 \tag*{$(a) + (b)$} \\
+            \Leftrightarrow \qquad \qquad \qquad \qquad 6x &= 0\\
+            \Leftrightarrow \qquad \qquad \qquad \qquad x &= 0
+        \end{align*}
+        Par $(a)$, $(b)$ et la propriété additive.}
+    \item{
+        \begin{align*}
+            2x + 3y &= -6 \tag*{$(a)$} \\
+            \Leftrightarrow \qquad \qquad 3y &= -6 \tag*{$(1)$, propriété de substitution}\\
+            \Leftrightarrow \qquad \qquad y &= -2 \\
+        \end{align*}}
+    \item{ $S = {(0, 2)}$ \\
+        Par $(1.)$ et $(2.)$}
+\end{enumerate}
+
+
+\end{document}

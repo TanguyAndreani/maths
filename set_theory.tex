@@ -1,0 +1,152 @@
+\documentclass[fleqn,a4paper,nobib]{tufte-handout}
+
+\input{include/preamble.tex}
+
+\title{Théorie des ensembles}
+\author{Tanguy Andreani}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+    Plusieurs manières d'aborder la théorie des ensembles 
+    coexistent. Je vais me baser sur les livres \underline{Naive
+    Set Theory} de Paul R. Halmos et \underline{A Book of Set
+    Theory} de Charles C. Pinter.
+\end{abstract}
+
+\tableofcontents
+
+\section*{Organisation}
+
+À mon avis, le mieux est d'éviter de trop inclure de
+détails historiques dans le texte principal en les écrivant
+plutôt dans la marge.
+
+\textbf{Attention. Ce texte est certainement rempli d'erreurs.}
+
+\section{Introduction}
+
+La théorie des ensembles amène la notion d'ensembles infinis.
+
+\subsection{Deux infinis}
+
+\begin{description}
+    \item[L'infini "réel"] où l'on considère une infinité
+    d'objets qui existent simultanément. (Paradoxe de Zeno,
+    ...)
+    \item[L'infini potentiel] soit la possibilité de
+    dépasser n'importe quantité finie.
+\end{description}
+
+À l'époque de Cantor
+\sidenote{
+    Georg Cantor (1845-1918), a publié ses premiers
+    articles sur la théorie des ensembles de 1873 à 1897.
+    Malgré les remouts, la théorie se répand vite car
+    elle sert à de nombreuses branches des mathématiques.
+},
+on traite beaucoup plus volontier de l'infini potentiel.
+Pourtant c'est bien de l'infini réel qu'il traite.
+
+\subsection{Fondement des mathématiques}
+
+
+Tout objet mathématique ou presque peut être décrit avec un ensemble et
+toutes les connaissances mathématiques peuvent être prouvées à l'intérieur
+d'\textit{une} théorie des ensembles.
+
+Il existe plus qu'une seule théorie des ensembles, basées sur
+des principes différents et avec des objectifs différents.
+
+Source: \href{https://fr.wikipedia.org/wiki/Fondements_des_math%C3%A9matiques}{Wikipedia/Fondements\_des\_mathématiques}.
+
+\subsection{Paradoxes dans la théorie de Cantor}
+
+Certains paradoxes touchent des notions clés de la théorie de Cantor.
+Ils sont divisés en deux catégories: les paradoxes \textit{sémantiques}
+et \textit{logiques}.
+
+\subsection*{Exemple de paradoxe logique: paradoxe de Russell}
+
+Soit $S$ l'ensemble de tous les ensembles qui ne sont pas des éléments
+d'eux même. Si $S$ est un élément de lui même, alors il se contient lui
+même et ne peut pas être dans \(S\)S. Si $S$ n'est pas un élément de lui même,
+alors il est un élément de lui même. C'est une contradiction.
+
+Faut-il remettre en question la notion d'ensemble d'ensembles ?
+Celle d'un ensemble qui se contient lui même? Ou encore celle
+de l'existence de $S$?
+
+\subsection*{Exemple de paradoxe sémantique: paradoxe de Berry}
+
+Soit $T$ l'ensemble de\textit{tous les entiers naturels qui peuvent
+être décris en moins de vingt mots.} Soit $n$
+le\textit{plus petit entier naturel qui ne peut être décris en moins de vingt mots.}
+Cette définition fait quatorze mots. Donc $n$ appartient à $T$ car on peut le décrire
+en quatorze mots et $n$ n'appartient pas à $T$ par la définition de $n$, ce qui est
+une contradiction.
+
+La encore, on est forcés d'admettre que l'ensemble $T$ n'existe pas,
+puisque son existence implique une contradiction.
+
+Comment éviter de créer de tels ensembles? Faut-il restreindre la
+formulation de la définition d'un ensemble ? 
+
+Une tentative de répondre aux paradoxes est la \textit{méthode axiomatique}.
+
+\subsection{La méthode axiomatique}
+
+La conception intuitive de Cantor n'est pas une base assez solide
+pour la théorie des ensembles (notemment en tant que fondement des
+mathématiques).
+
+On a commencé par tenter d'exclure des cas spécifiques
+\sidenote{\footnotesize lesquels?} mais il a
+vite fallu de nouvelles approches de la notion d'ensemble.
+
+\textbf{L'approche axiomatique}
+
+C'est une approche générale des mathématiques qui remonte aux
+\marginpar{\footnotesize
+    La méthode axiomatique a une histoire relativement récente et
+    une grosse partie de l'approche moderne du raisonnement déductif
+    sur la base d'axiomes vient de la géometrie. L'avènement des
+    géométries non-euclidienne et l'idée que les axiomes ne sont pas
+    des vérités universelles.
+}
+Éléments d'Euclide.
+
+L'idée est de formaliser au maximum, en évitant de faire appel à
+l'intuition pour définir une propriété d'un objet. (ex: Euclide
+qui ne définit pas ce que signifie pour un point d'être \textit{entre}
+deux autres.)
+
+Pour cela, on redéfinit des termes pourtant issus de l'intuition.
+
+Par exemple, un point n'est plus le concept de point sur un plan
+physique qu'on s'imagine mais simplement un objet possédant telle
+ou telle propriété (avoir des coordonnées par exemple
+\sidenote{C'est juste un exemple un peu au hasard.}).
+
+Ça nécessite de développer un langage très précis et sans
+ambiguïté pour définir les objets et les propriétés dont on parle.
+
+Pinter parle des prédicats, par exemple, $A(X, Y)$ pour dire
+que \textit{X est parallèle à Y}. $X$ et $Y$ sont les
+variables du prédicat. 
+
+Certains prédicats fondamentaux sont \textit{élémentaires}.
+
+Dans nos théories, les variables des prédicats peuvent représenter
+un objet, une paire d'objets ou encore un \textit{tuplet}
+\sidenote{La notion de tuplet est-elle formalisée? Y a-t-il des
+propriétés intéressantes ?} d'objets.
+
+\subsection{L'approche logique}
+
+\subsection{L'approche intuitioniste}
+
+
+\end{document}

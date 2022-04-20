@@ -1,0 +1,544 @@
+\documentclass[fleqn,a4paper,nobib]{tufte-handout}
+
+\input{include/preamble.tex}
+
+\title{Logique formelle}
+\author{Tanguy Andreani}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+Notes prises pour les livres
+\underline{An Introduction to Formal Logic} (Smith)
+et \underline{forall $x$: Calgary} (Button, Magnus, Loftis, Trueman, Thomas-Bolduc, Zach).
+
+D'autres sources s'ajoutent: les autres écrits de Peter Smith et le site
+\url{https://plato.stanford.edu/}.
+\end{abstract}
+
+\tableofcontents
+
+\section{Introduction}
+
+On va développer tout au long de ces notes une vision de plus
+en plus formalisée de la logique.
+
+On commence par créer une base informelle pour créer et identifier
+des arguments à partir de connecteurs du langage courant et identifier
+des propriété ou des relations entre les composantes d'un argument.\\
+
+\textbf{Attention. Ce texte est certainement rempli d'erreurs.}
+
+
+\section{Développer un langage}
+
+Cette section est plus orientée \textit{problem solving}
+et sert surtout à introduire du vocabulaire et des grandes idées.
+
+Il est difficile de cerner exactement ce que couvre la logique
+formelle. On développe un langage dédié qui permettra d'exprimer
+sans ambiguïté ce que Calgary nomme "l'état des choses". Si on tient
+les faits $A$, $B$ et $C$ pour vrais, que peut on en déduire, est-il
+possible de dériver de nouveau faits à partir de cette certitude ? Les
+"phrases" de ce langage peuvent être liées entre elles par
+plusieurs types de relations. Par exemple,
+
+\begin{description}
+    \item[L'implication] le fait que certaines choses soient si certaines autres sont.
+    \item[La contradiction] le fait que certaines choses ne puissent pas être simultanément.
+\end{description}
+
+Calgary distingue les définitions \emph{sémantiques} de ces
+relations de celles basées sur une théorie des preuves.
+\sidenote{
+    Dans le premier cas c'est l'interprétation du langage et
+    dans le second l'utilisation d'un système formalisé de déduction.
+    J'ai tout de même l'impression que les deux s'équivalent.
+}
+
+La structure que l'on va étudier est celle de l'\textit{argument}.
+
+\begin{description}
+    \item[Un argument] est un raisonnement qui à vocation à entraîner une conclusion.
+    Il se compose de prémisses qui mènent, par une ou plusieurs étapes d'inférence, à
+    la conclusion.
+    \item[Un prémisse] est une sorte de fait initial sur lequel on se base pour
+    créer de nouveaux faits.
+    \item[Une conclusion] a la même forme qu'un prémisse et est le point d'arrivée
+    d'un argument, au moyen d'un \textbf{raisonnement déductif}.
+\end{description}
+
+\subsection{Le raisonnement déductif}
+
+Le raisonnement est quelque chose que l'on va tenter de formaliser. C'est
+le processus mental qui permet par exemple, de dire que\textmath{si je suis un
+humain et que tous les humains sont mortels, alors je suis mortel}.
+
+Le mot \textit{alors} marque la conclusion de l'argument, mais comment être sûr
+que cette conslusion découle bien des prémisses?
+
+Un raisonnement, ou étape d'inférence, peut être valide ou invalide.
+
+Pour évaluer la validité d'un raisonnement déductif, Smith introduit l'idée de
+\textbf{cohérence interne} des arguments. On évalue un argument sans prendre
+en compte les paramètres extérieurs (comme la validité \emph{réelle} des prémisses
+par exemple).
+
+La validité des prémisses et celle du raisonnement déductif (l'ensemble
+des \textit{inference steps})
+sont deux étapes distinctes de l'évaluation d'un argument. Ainsi,
+un raisonnement peut être parfaitement valide bien que basé sur des prémisses
+%faux. (Ex:\textmath{Si je suis un lapin et que tous les lapins tirent des lasers, alors
+%je tire des lasers.})
+
+\greybox{
+    \subsection*{L'usage des mots <<inférence>> et <<déduction>>}
+
+    \begin{displayquote}
+        En logique, l’inférence est un mouvement de la pensée allant des
+        principes à la conclusion. (\href{https://fr.wikipedia.org/wiki/Inférence}{source: Wikipedia/Inférence})
+    \end{displayquote}
+
+    En Français, le mot déduction se rapporte au raisonnement déductif.
+    Celui-ci désigne un type d'inférence.
+
+    \begin{displayquote}
+        La déduction est une opération par laquelle on établit au moyen
+        de prémisses une conclusion qui en est la conséquence nécessaire,
+        en vertu de règles d'inférence logiques.
+    \end{displayquote}
+    
+    Une inférence \textit{inductive}, c'est quand la conclusion est
+    probable ou très probable. Par exemple le raisonnement d'un détective
+    est inductif. Elle est incompatible avec l'inférence déductive.
+}
+
+\subsection{Généraliser des formes d'arguments par l'analyse sémantique}
+
+Plutôt que d'évaluer au cas par cas des arguments écrits sous forme
+prosaïque, on peut identifier des structures qui se répètent et
+vérifier si les arguments en question y correspondent.
+
+On peut faire ça car on ne se souci que de la cohérence \textit{interne}
+des arguments. Ainsi, la nature exacte des choses dont l'argument
+traite n'a pas d'importance.
+
+Un argument peut être \textbf{nomologiquement valide} si il ne lui
+existe aucun contre exemple qui respecte les lois de la nature.
+Il est \textbf{conceptuellement valide} si on peut démontrer sa
+cohérence interne. Un argument est dit \textit{solide} si il est
+valide et que ses prémisses sont vrais. En logique, vu qu'on ne
+s'intéresse qu'à la validité de l'argument, qu'un argument soit
+nomologiquement valide importe peu.
+
+
+Tout argument de la forme
+\sidenote{C'est un schéma de déduction, on revient dessus en section 2.}
+\syllogism{Tous les F sont G}{n est F}{n est G}
+est valide dans ce cadre, mais pas forcément nomologiquement.
+
+Cette façon de procéder correspond plus à une méthode d'évaluation
+des arguments basée sur la sémantique. Certains mots sont de bons
+indicateurs pour passer identifier les prémisses et la conclusion
+
+Cette façon de procéder correspond plus à une méthode d'évaluation
+des arguments basée sur la sémantique. Certains mots sont de bons
+indicateurs pour passer identifier les prémisses et la conclusion
+dans un argument sous forme de prose.
+\begin{marginfigure}[-5cm]
+    \margingreybox{
+        \textbf{indicateurs de conclusion}\\
+        so, therefore, hence, thus, accordingly, consequently [\textit{conclusion}]\\
+        Aussi appelés \textit{inference markers}.\\
+        \textbf{indicateurs de prémisses}\\
+        since, because, given that [\textit{premise}]
+    }
+\end{marginfigure}
+
+\subsection*{Exercices (Calgary p. 17)}
+
+Essayer d'identifier si des arguments sont valides ou non en
+regardant leur forme.
+
+\begin{enumerate}[label=\textbf{\Alph*.}]
+    \item Arguments valides:
+    \syllogism{Socrates is a man.}{All men are carrots.}{Socrates is a carrot.}
+    \syllogism{Abe Lincoln was either born in Illinois or he was once president.}{Abe Lincoln was never president.}{Abe Lincoln was born in Illinois.}
+    \syllogism{Abe Lincoln was either from France or from Luxembourg.}{Abe Lincoln was not from Luxembourg.}{Abe Lincoln was from France.}
+    \syllogism{If the world ends today, I will not need to get up tomorrow.}{I will need to get up tomorrow.}{The world will not end today.}
+
+    Arguments invalides:
+    \syllogism{If I pull the trigger, Abe Lincoln will die.}{I do not pull the trigger.}{Abe Lincoln will not die.}
+
+    Abe Lincoln pourrait mourir d'autre chose.
+    \syllogism{Joe is now 19 years old.}{Joe is now 87 years old.}{Bob is now 20 years old.}
+    Pour le dernier argument, on a un argument de la forme
+    \syllogism{A est F}{A est G}{B est H}
+
+    Sémantiquement, on voit bien qu'en l'absence de référence à $B$ et $H$
+    dans les prémisses, on ne peut pas évaluer leur impact sur la conclusion
+    sans faire référence à d'éléments extérieurs. Les deux prémisses
+    sont incompatibles dans notre perception des choses ce qui fait que
+    notre argument ne serait même pas nomologiquement valide.
+
+    \item (Uniquement mes réponses)
+    
+    \begin{enumerate}[label=\arabic*.]
+        \item Un argument valide peut très bien être défaillant dans
+        certains de ses prémisses.
+        \item Un argument peut être défaillant dans tous ses prémisses.
+        \item Un argument valide peut aussi avoir une conclusion fausse, tout
+        ce qui nous intéresse c'est le raisonnement déductif.
+        \item Un argument invalide pourrait très bien devenir valide par
+        l'ajout d'un prémisse. Le raisonnement change.
+        \syllogism{Je ne suis pas grand.}{Je ne suis pas petit.}{Je suis de taille moyenne.}
+    \end{enumerate}
+\end{enumerate}
+
+\subsection{La validité des propositions}
+
+\begin{description}
+    \item[Une proposition] est un candidat acceptable pour être un prémisse ou
+    une conclusion dans un argument.
+\end{description}
+
+On ne peut pas la définir dans l'absolu mais on peut admettre
+que certaines propositions soient vraies.
+
+
+Considérées sous le prisme d'une \textit{situation}, les propositions
+peuvent être reliées entre elles.
+
+\begin{enumerate}[label=\arabic*.]
+    \item Plusieurs propositions sont \textit{inconsistentes} si et seulement si
+    il n'y a aucune situation possible dans laquelle ses propositions
+    sont toutes vraies simultanément.
+    \item Plusieurs propositions sont \textit{équivalentes} si et seulement si
+    elles sont vraies dans exactement les mêmes cas. 
+\end{enumerate}
+
+\subsection{La validité de l'inférence}
+
+\begin{displayquote}
+    Un argument est valide si et seulement si\sidenote{\footnotesize\textit{si et seulement si} est utilisé ici dans le sens où il est impossible qu'un argument soit valide si il existe une telle situation. Du coup c'est méta.} il n'existe aucune situation
+    dans laquelle les prémisses seraient vrais et la conclusion fausse.
+\end{displayquote}
+
+La notion de situation est un peu floue. 
+On en revient à cette notion de coherence \textit{interne} de l'argument.
+La logique s'inscrit dans un "univers" de pensée qui n'est pas limité
+par les éléments exterieurs que nous connaissont. Dans les exemples
+précédents, cet univers est contenu dans la formulation. Restent des
+axiomes qui permettent de construire des schémas de pensée valides.
+Par exemple, le fait de ne pas pouvoir dire que \textmath{A est C}
+et \textmath{A n'est pas C} en même temps.
+
+La notion de \textit{possibilité} ou de probabilité d'une situation
+doit être prise au sens le plus large et le plus inclusif. Soit
+quelque chose est possible soit il ne l'est pas, et si la probabilité
+entre les deux est infime, alors il est possible.
+
+\greybox{
+\subsection*{La possibilité qu'un prémisse ou qu'une conclusion soit vrai.}
+
+Vu qu'on ne sait pas très bien à ce stade ce qu'implique cette
+définition de ce qui arrive "probablement", on pourrait utiliser un autre mot,
+sans racine: \textit{M-ment} pour désigner son sens le plus large.
+
+\begin{displayquote}
+    Il est \textit{M}-ment nécessaire que C si et seulement si il n'est pas \textit{M}-ment possible
+    que $\bar{C}$.
+\end{displayquote}
+
+L'inférence, si elle est valide,
+préserve la \textit{vérité}. Passer des prémisses à la conclusion
+conserve la vérité. \textit{On passe de "vrai à vrai" mais pas forcément de
+"faux à faux".}
+}
+
+\subsection*{Le principe d'invalidité}
+
+Le \textit{principe d'invalidité} dit que si un argument comprend
+uniquement des prémisses vrais et une conclusion fausse
+alors il est forcément invalide.
+
+Ça pose une difficulté. Si on ne prend pas en compte les
+éléments exterieurs comme la validité des prémisses, de quelle
+vérité parle-t-on ici?
+
+De celle qu'on admet comme base pour
+l'exercice.
+
+\greybox{
+    \subsection*{Les arguments solides}
+
+    À partir du moment où l'on peut être $M$-ment certains que les prémisses
+soient vrais, on peut tirer des conclusions de l'existence d'arguments
+solides par opposition à ceux qui tombent sous le principe d'invalidité.
+
+\begin{enumerate}
+    \item Tout argument solide a une conclusion vraie.
+    \item Deux arguments solides ne peuvent avoir de conclusions inconsistentes entre elles.
+    \item Aucun argument solide n'a de prémisses inconsistentes entre elles.
+\end{enumerate}
+}
+
+\subsection*{Exercices (Smith p. 19)}
+
+\begin{enumerate}[label=(\alph*)]
+    \item (Vrai ou Faux)
+    \begin{enumerate}[label=(\arabic*)]
+        \item \textit{Les prémisses et la conclusion d'un argument invalide sont
+        incompatibles.} \textbf{Faux.} En effet, un argument dont les prémisses
+        et la conclusion sont vraies peut être invalide par une étape d'inférence
+        défaillante.
+        \item \textit{Si un argument a des prémisses fausses et une conclusion vraie,
+        alors la validité de la conclusion ne peut pas être attribuée à
+        celle des prémisses, donc l'argument ne peut être valide.} \textbf{Faux.}
+        Dans le cadre de notre système, la validité d'une étape d'inférence
+        ne dépend pas de la validité des prémisses et de la conclusion, sauf
+        pour invalider un argument au moyen du principe d'invalidité, ce
+        qui n'est pas le cas ici.
+        \item \textit{Tout étape d'inférence qui implique des prémisses vraies et une
+        conclusion vraie préserve la vérité et est donc valide.} \textbf{Faux.}
+        On pourrait dire que l'inférence préserve la vérité si elle est valide
+        sans prendre en compte la validité des prémisses.
+        \item \textit{On peut rendre un argument valide invalide en ajoutant des prémisses.}
+        \textbf{Vrai.} Il suffit d'ajouter comme prémisse la négation de la conclusion.
+        (Si on ajoute la négation de la compatibilité entre les prémisses initiaux,
+        ça rend l'argument invalide ?)
+        \item \textit{On peut rendre un argument solide non solide en ajoutant des prémisses.}
+        \textbf{Vrai.} Il suffit de le rendre invalide ou de rajouter un prémisse faux.
+        \item \textit{On peut rendre un argument invalide valide en ajoutant des prémisses.}
+        \textbf{Vrai.} Si on a un argument de la forme \textit{A est I, J ou K. A n'est pas I. Donc A est K.}
+        On peut le rendre valide en ajoutant \textit{A n'est pas J.}
+        \item \textit{Si des propositions sont consistentes entre elles, ajouter une
+        proposition vraie ne peut les rendre inconsistentes.} \textbf{Faux.}
+        Si on a des propositions de la forme \textit{A est I. A est J.} On peut les
+        rendre incompatible avec l'introduction de \textit{A est soit I soit J.} comme
+        vraie.
+        \item \textit{Si des propositions sont inconsistentes entre elles, alors
+        on ne peut les rendre consistentes par l'ajout d'un nouveau prémisse.}
+        \textbf{Vrai.} Avec l'exemple précédent, si on introduit \textit{A peut être à
+        la fois I et J}, il y a quand même incompatibilité entre \textit{A est I soit J}
+        et \textit{A est I} et \textit{A est J}.
+        \item \textit{Si des propositions sont compatibles, leur négation le sont aussi.}
+        \textit{Faux.} \textit{A est I. A est J. A est soit I soit J.} Les négations des
+        deux premières propositions sont incompatibles.\sidenote{\footnotesize Théorème de De Morgan?}
+        \item \textit{Si des propositions sont inconsistentes entre elles, alors on peut
+        sélectionner n'importe laquelle et argumenter qu'elle est invalide si les autres
+        propositions sont vraies.} \textbf{Faux.} Les autres propositions sont peut être
+        incompatibles entre elles.
+    \end{enumerate}
+    \item[(b*)] (Juste mes démonstrations. Cet exercice introduit une méthode qui s'éloigne
+    un peu de la simple analyse sémantique d'un argument.)
+    \begin{enumerate}[label=(\arabic*)]
+        \item Si $A$ implique $C$ et $C$ est équivalent de $C'$ il n'y a que deux cas possibles: \\
+            \begin{tabular}{|c|c|c|}
+                \hline
+                $A$ & $C$ & $C'$ \\
+                \hline
+                V & V & V \\
+                F & ? & ? \\
+                \hline
+            \end{tabular} \\
+            \textit{Où le point d'interrogation dénote la validité de $C$ lorsque $A$ est faux.}
+
+            On voit bien que la relation entre $A$ et $C'$ est la même
+            que celle entre $A$ et $C$ et que cette relation conserve
+            la validité ce qui est la définition de l'implication.
+            On a donc $A$ implique $C'$.
+
+            Je ne sais pas si c'est la bonne manière de démontrer. En tout cas
+            lister les cas possibles me semble plus sain que de paraphraser
+            l'énoncer.
+        \item Si $A$ implique $C$ et $A$ est équivalent de $A'$ alors il n'y a que
+        deux cas possibles: \\
+        \begin{tabular}{|c|c|c|}
+            \hline
+            $A$ & $A'$ & $C$ \\
+            \hline
+            V & V & V \\
+            F & F & ? \\
+            \hline
+        \end{tabular} \\
+        La relation entre $A'$ et $C$ conserve la validité, donc $A'$ implique $C$.
+        \item Si $A$\textmath{et\sidenote{\footnotesize $A$\textmath{et}$B$ est une
+        propositions vraie uniquement si $A$ et $B$ sont vrais.}}$B$ implique $C$,
+        et $A$ est équivalent de 
+        $A'$, il y a 4 cas possibles: \\
+        \begin{tabular}{|c|c|c|c|}
+            \hline
+            $A$ & $A'$ & $B$ & $C$ \\
+            \hline
+            V & V & V & V \\
+            V & V & F & ? \\
+            F & F & V & ? \\
+            F & F & F & ? \\
+            \hline
+        \end{tabular} \\
+        La relation entre $A$\textmath{et}$B$ et $C$ est la même que
+        celle entre $A'$\textmath{et}$B$ et $C$. Cette relation conserve
+        la validité.
+    \end{enumerate}
+
+    On peut dire que des propositions équivalentes se comportent
+    de la même manière dans les arguments qui les contiennent.
+    Deux propositions équivalentes sont vraies dans exactement les
+    même <<cas>>.
+
+    Autrement dit, il est impossible de formuler une situation cohérente où l'une
+    est vraie et pas l'autre. À partir de là, les deux propositions
+    sont indistinguables du point de vue de leur vérité.
+
+    Un argument peut être valide ou invalide en fonction de l'inférence
+    ou du principe d'invalidité. Dans un argument qui tombe sous le
+    principe d'invalidité, remplacer un prémisse par un prémisse
+    équivalent ne change rien à la validité de l'argument, puisqu'on
+    ne regarde que la validité du prémisse.
+\end{enumerate}
+
+\subsection{Une définition circulaire}
+
+Concrètement, il est difficile de définir la compatibilité entre deux
+propositions. Par exemple, quelles étapes doivent être franchies
+pour s'assurer
+de cette compatibilité?
+
+À la fin de notre travail, on ne doit pas pouvoir déduire de
+contradiction avec ce qu'on a produit. En tout cas Smith écrit
+qu'à ce stade, on pourrait penser que c'est la condition
+minimale à tout raisonnement valide. Seulement, c'est une définition
+circulaire (de la logique qu'on essaye de formaliser en fonction
+d'elle même).
+
+L'idée même que la validité d'une proposition soit cohérente au
+sens \textit{M-ment possible} est troublante puisque pour
+vérifier cette cohérence, cette possibilité, il faut un autre
+argument.
+
+\section{Les schémas de déduction}
+\marginnote{(Le titre de cette section est peut être mal traduit.)}
+
+\greybox{
+    \subsection*{Les schémas pour représenter des formes de déduction}
+
+    Les schémas sont un peu comme des fonctions.
+    \syllogism{No F is G}{n is F}{n is not G}
+
+    $F$, $G$ et $n$ sont des \textit{variables} du schéma.
+    \syllogism{No F is a man}{n is F}{n is not a man}
+
+    est aussi un schéma.
+
+    On dit qu'un schéma dont toutes les \textit{instances}
+    sont valides est lui même valide.
+
+    On peut associer à un argument plusieurs formes de déduction,
+    on choisi typiquement celle qui est la plus générale. (Dans cet
+    encadré, le premier exemple est plus général que le second.)
+}
+
+\subsection*{Exercices (Smith p. 26)}
+
+\begin{enumerate}[label=(\alph*)]
+    \item Quelles formes d'inférence sont valides ?
+        \begin{enumerate}[label=(\arabic*)]
+            \item \textmath{Certains F sont G; aucun G n'est H; donc, certains F ne sont pas H.}
+            \textbf{Valide.}
+            \item \textmath{Certains F sont G; certains H sont F; donc, certains G sont H.}
+            \textbf{Invalide.} \textmath{H = déménageurs, F = des personnes fortes, G = haltérophiles}.
+            De tout évidence, il est très possible qu'aucun déménageur ne soit aussi haltérophile.
+            \item \textmath{Tous les F sont G; certains F sont H; donc, certains H sont G.}
+            \textbf{Valide.} Certains $F$ sont $G$ et $H$. Donc certains $H$ sont $G$.
+            \item \textmath{Aucun F n'est G; certains G sont H; donc, certains H ne sont pas F.}
+            \textbf{Invalide.} Dire que \textmath{Tous les H sont F} n'est pas incompatible avec
+            les prémisses mais l'est avec la conclusion.
+            \item \textmath{Aucun F n'est G; aucun H n'est G; donc, certains F ne sont pas H.}
+            \textbf{Invalide.} Dire que \textmath{Tous les F sont H} n'est pas incompatible
+            avec les prémisses mais l'est avec la conclusion.
+            \item \textmath{Tous les F sont G; aucun G n'est H; donc, aucun H n'est F.}
+            \textbf{Valide.} Aucun $F$ n'est $H$ donc aucun $H$ n'est $F$.
+
+        \end{enumerate}
+    \item Quelles formes d'inférence sont valides ? (Formes un peu plus exotiques.)
+        \begin{enumerate}[label=(\arabic*)]
+            \item \textmath{Tous les F sont G; donc, rien de ce qui n'est pas G n'est F.}
+            \textbf{Valide.} Il est impossible possible de concevoir un $n$ qui serait $F$ mais pas $G$.
+            \item \textmath{Tous les F sont G; aucun G n'est H; certains J sont H; donc, certains J ne sont pas F.}
+            \textbf{Valide.} Aucun $J$ qui est à la fois $H$ n'est $F$, donc, on a bien \textmath{certains J ne sont pas F.}
+            \item \textmath{Il y a un nombre impair de F, il y a un nombre impair de G; donc il y a
+            un nombre pair de choses qui sont soit G soit F.} \textbf{Invalide.} Si on a 3 éléments qui sont $F$,
+            et 3 éléments qui sont $G$ mais que un élément est $F$ et $G$, alors il y a en tout 5 éléments.
+            \item \textmath{Tous les F sont G; donc, au moins une chose est F et G} \textbf{Invalide.}
+            Il peut très bien n'exister aucun $F$, par contre si il existe des $F$, ils sont forcément $F$ et $G$.
+            \item \textmath{m est F; n est F; donc il y a au moins deux F} \textbf{Valide.}
+            Ici, la formulation implique que $m$ et $n$ existent bel et bien. Dans l'exemple précédent,
+            on raisonnait avec des propriétés ($F$, $G$...) et non avec des objets particuliers.
+            Je note qu'on a pas encore bien défini se qui constitue un objet ou une propriété d'un objet
+            en logique.
+            \item \textmath{Tout F est G; aucun G n'est H; donc, tout J est J.} \textbf{Valide mais.}
+            La conclusion est forcément vraie, donc le raisonnement ne tombe pas sous le principe
+            d'invalidité.
+        \end{enumerate}
+\end{enumerate}
+
+L'exerice (a) ne traite que de \textit{syllogismes}. Un type d'argument très simple
+décris en premier par Aristote.
+
+\greybox{
+    \subsection*{Les syllogismes}
+    
+    Un syllogisme se compose de trois propositions.
+    Chaque proposition peut prendre une des formes suivantes
+    :
+    
+    \begin{enumerate}[leftmargin=3cm]
+        \item[A:] Tous les X sont Y
+        \item[E:] Aucun X n'est Y
+        \item[I:] Certains X sont Y
+        \item[O:] Certains X ne sont pas Y   
+    \end{enumerate}
+    
+    Les deux termes qui apparaissent dans la conclusion "viennent" chacun d'un
+    prémisse différent. Et on rajoute un terme "commun" aux deux prémisses
+    mais absent de la conclusion.
+}
+\marginpar{\vspace{-3.9cm}(On suppose que ces labels viennent des mots
+latins \emph{affirmo} et \emph{nego}.)}
+
+\begin{enumerate}[label=(\alph*)]
+    \item[(c)] Quels syllogismes peuvent avoir une conclusion de forme A ? Pareil pour O.
+        \begin{enumerate}[label=(\arabic*)]
+            \item Les formes de syllogismes qui ont une conclusion de la forme A:
+            \syllogism{Tous les S sont M}{Tous les M sont P}{Tous les S sont P}
+            \item Les formes de syllogismes qui ont une conclusion de la forme O:
+            \syllogism{Certains S sont M}{Aucun S n'est P}{Certains S ne sont pas P}
+        \end{enumerate}
+        Je ne vois pas très bien comment énumérer toutes les possibilités.
+    \item[(d)] Les stoïciens se concentrait sur une autre famille d'argument, qu'ils
+    considéraient indémontrables par leur simplicité. Il utilisait une syntax où $A$ et
+    $B$ désignent des propositions et le préfixe \textit{non-} leur négation. 
+        \begin{enumerate}[label=(\arabic*)]
+            \item \textmath{Si A alors B; A; donc B} Semble valide par la définition de l'implication.
+            \item \textmath{Si A alors B; non-B; donc non-A} Semble valide par la définition de l'implication.
+            Je note que c'est la \textit{contraposée} de l'implication qui est utilisée ici. Si $A$ implique $B$ alors
+            $non-B$ implique $non-A$.
+            \item \textmath{non-(A et B); A; donc non-B} Valide car si $B$ était vrai, alors \textmath{(A et B)}
+            serait vrai ce qui est une contradiction.
+            \item \textmath{A ou B; A; donc non-B} Invalide car $A$ et $B$ peuvent être valides simultanément.
+            \item \textmath{A ou B; non-A; donc B} Valide car $A$ et $B$ ne peuvent être faux en même temps.
+            \item \textmath{Si A alors B; non-A; donc non-B} Invalide car $B$ pourrait être vrai indépendamment de $A$.
+            \item \textmath{Si A alors B; B; donc A} Invalide car $B$ pour la même raison.
+            \item \textmath{non-(A et B); donc soit non-A soit non-B} Invalide car $A$ et $B$ peuvent être faux en même temps.
+            \item \textmath{A or B; donc non-(non-A et non-B)} Valide car $A$ ne peut être faux en même temps que $B$.
+            D'ailleurs c'est le théorème de DeMorgan.
+            \item \textmath{non-non-A; donc A} Si $A$ est faux alors \textmath{non-A} est vrai ce qui est une contradiction.
+        \end{enumerate}
+\end{enumerate}
+
+
+
+\end{document}

@@ -1,0 +1,109 @@
+\usepackage[]{amsmath,amsthm,amssymb}
+\usepackage[]{systeme}
+% accès à enumerate
+\usepackage{enumitem}
+
+%Set the font (output) encoding
+%--------------------------------------
+\usepackage[T1]{fontenc} %Not needed by LuaLaTeX or XeLaTeX
+
+%French-specific commands
+%--------------------------------------
+% nécessite fontenc (voir au dessus)
+\usepackage[french]{babel}
+\usepackage[autolanguage]{numprint} % for the \nombre command
+
+%Hyphenation rules
+%--------------------------------------
+\usepackage{hyphenat}
+\hyphenation{mate-mática recu-perar}
+
+\usepackage{xcolor,graphicx}
+
+\newcommand{\colornote}[2][gray!40]{
+    \hphantom{hello}
+
+    %\noindent
+    \hspace{-\parindent}
+    \hspace{-12pt}
+    \colorbox{#1}{
+        \begin{minipage}{\textwidth}
+            %\vspace{4pt}
+            \parindent12pt
+            #2
+            \vspace{4pt}
+        \end{minipage}
+    }
+
+    \hphantom{hello}
+}
+
+\newcommand{\margincolornote}[2][gray!20]{
+    \noindent
+    \colorbox{#1}{
+        \begin{minipage}{\textwidth}
+            %\vspace{4pt}
+            #2
+        \end{minipage}
+    }
+}
+
+\newcommand{\greybox}[2][gray!40]{
+    \colornote[#1]{#2}
+}
+
+\newcommand{\margingreybox}[2][gray!20]{
+    \margincolornote[#1]{#2}
+}
+
+\newcommand{\textmath}[1]{
+    \textit{#1}
+}
+
+\usepackage{csquotes}
+
+\newcommand{\syllogism}[3]{
+    \begin{flalign*}
+        &\textit{#1}&\\
+        &\textit{#2}&\\
+        \qquad \qquad \therefore \hphantom{z} &\textit{#3}&
+    \end{flalign*}
+}
+
+% Quelques classes de théorèmes
+\newtheorem{definition}{Définition}
+\newtheorem{theorem}{Théorème}
+\newtheorem{lemma}{Lemma}[theorem]
+\newtheorem{corollary}{Corollaire}[theorem]
+\newtheorem*{remark}{\normalfont{\emph{Remarque}}}
+\newtheorem{exercise}{\normalfont{\emph{Exercice}}}
+\newtheorem*{solution}{\normalfont{\emph{Solution}}}
+
+\usepackage[]{float}
+
+\usepackage{array}
+\usepackage{siunitx}
+
+\usepackage{booktabs}
+
+\usepackage[]{basicarith}
+
+
+% les plots tikzpicture
+\usepackage{pgfplots}
+\pgfplotsset{compat = newest}
+\usetikzlibrary{intersections}
+
+% margin plot
+\newenvironment{marplot}[2]{
+    \begin{marginfigure}[]
+        \caption{\footnotesize #2}
+        \begin{tikzpicture}[]
+            \begin{axis}[#1]
+}{
+            \end{axis}
+        \end{tikzpicture}
+    \end{marginfigure}
+}
+
+\date{Dernière mise à jour: \today}
