@@ -256,10 +256,116 @@ nombres basique et d'algèbre.
 \end{solution}
 
 
+\begin{exercise}
+    Un nombre à six chiffres dont le chiffre le plus
+    important est $1$ devient trois fois plus grand
+    si on place ce chiffre tout à droite du nombre.
+\end{exercise}
+
+\begin{solution}
+
+    On pose la multiplication:
+    
+    \probline{8}{1ABCDE}
+    \opline{$\times$}{3}
+    \soluline{ABCDE1}
+
+    Avec la même logique que les premiers exercices,
+    on cherche à remplir chiffre par chiffre en
+    commençant à droite.
+    
+    \probline{8}{1ABCD7}
+    \opline{$\times$}{3}
+    \soluline{ABCD71}
+
+    On a une retenue de $2$, on a donc $D\times3+2=?7$
+    soit $D = 5$.
+    
+    \probline{8}{1ABC57}
+    \opline{$\times$}{3}
+    \soluline{ABC571}
+
+    $C\times3+1=?5$ soit $C = 8$.
+
+    \probline{8}{1AB857}
+    \opline{$\times$}{3}
+    \soluline{AB8571}
+    
+    $B\times3+2=?8$ soit $B=2$.
+    
+    $A\times3=?2$ soit $A=4$. 
+
+    \probline{8}{142857}
+    \opline{$\times$}{3}
+    \soluline{428571}
+\end{solution}
+    
+    
+    
+\begin{exercise}
+    Diviser $123123123$ par $123$.
+\end{exercise}
+
+\begin{solution}
+    On pose la multiplication:
+
+    \probline{10}{.........}
+    \opline{$\times$}{123}
+    \soluline{123123123}
+
+    On voit bien que c'est le même pattern que dans les
+    exercices précédents.
+
+    \probline{10}{1001001}
+    \opline{$\times$}{123}
+    \soluline{123123123}
 
 
+\end{solution}
 
 
+\begin{exercise}
+    Peut-on prédire le reste de la division de
+    $111...1$ (100 uns, on le nomme $a$) par $1111111$?
+\end{exercise}
+
+
+\begin{solution}\sidenote{Voir exercice 10. j'ai fais nimp ici.}
+    On a $1111111\times x + r = a$,
+
+    On peut multiplier $1111111$ par un nombre composé
+    de uns séparés entre eux par six zéros (nommons le
+    $n$). Combien
+    de uns faut ils pour approcher les cent chiffres?
+
+    $7\times14 = 98$
+
+    On a donc un nombre de $98$ uns divisible par
+    $1111111$. Nommons ce nombre $m = n \times 1111111$.
+
+    On a $m \times 100 + 11 = a$, soit
+    $1111111 \times n \times 100 + 11 = a$.
+
+    Donc $r = 100$.
+
+    Voici un one-liner Python pour vérifier:
+
+    \texttt{len(str(1111111 * (int("0000001"*14) * 100) + 11))}
+
+    Ça m'a l'air assez tiré par les cheveux, ça n'est
+    pas une méthode facile.
+\end{solution}
+
+
+\begin{exercise}
+    Diviser $1000\dots0$ (20 zéros) par $7$.
+\end{exercise}
+
+\begin{solution}
+    En fait, les deux exercices précédents (10. et 9.)
+    étaient juste basé sur la périodicité des chiffres
+    du résultat de la division euclidienne\dots
+\end{solution}
 
 
 
