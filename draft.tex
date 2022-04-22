@@ -88,8 +88,9 @@ nombres basique et d'algèbre.
     %     \end{tabular}
     % \end{figure}
         
-    Vu qu'on veut 0 en premier chiffre du résultat, on doit ajouter
-    8 5 fois, de manière à obtenir 40.
+    Vu qu'on veut $0$ en premier chiffre du résultat, on doit
+    ajouter
+    $8$ 5 fois, de manière à obtenir $40$.
 
     \probline{5}{...8}
     \opline{$+$}{...8}
@@ -111,7 +112,8 @@ nombres basique et d'algèbre.
     % \end{figure}
 
 
-    On remplie ensuite le tableau avec le même raisonnement vers la gauche.
+    On remplie ensuite le tableau avec le même raisonnement
+    vers la gauche.
 
     \probline{5}{888}
     \opline{$+$}{88}
@@ -134,7 +136,8 @@ nombres basique et d'algèbre.
 \end{solution}
 
 \begin{exercise}
-    Trouver tous les termes de l'addition suivante (A, B et C sont distincts):
+    Trouver tous les termes de l'addition suivante
+    ($A$, $B$ et $C$ sont distincts):
 
     \probline{5}{aaa}
     \opline{$+$}{bbb}
@@ -151,10 +154,11 @@ nombres basique et d'algèbre.
 \end{exercise}
 
 \begin{solution}
-    A, B et C ne peuvent être égaux à 0. (A + B = 0, A + 0 = C, 0 + B = C sont
+    $A$, $B$ et $C$ ne peuvent être égaux à $0$.
+    ($A + B = 0$, $A + 0 = C$, $0 + B = C$ sont
     trois cas impossibles.)
 
-    On a A = 1 car la somme de deux nombres de trois chiffres
+    On a $A = 1$ car la somme de deux nombres de trois chiffres
     est forcéments strictement inférieure à 2000. Ici elle est
     aussi supérieure à 1000.
 
@@ -174,12 +178,92 @@ nombres basique et d'algèbre.
     %     \end{tabular}
     % \end{figure}
 
-    Comme 1 + B = 10, pour avoir la retenue, B = 9 et C = 0.
+    Comme $1 + B = 10$, pour avoir la retenue, $B = 9$ et $C = 0$.
 
     \probline{5}{111}
     \opline{$+$}{999}
     \soluline{1110}
 \end{solution}
+
+
+
+
+
+\begin{exercise}
+    Comment trouver la solution pour \(x \times 1001\)
+    instantanément? Par exemple avec \(x = 715\).
+\end{exercise}
+
+\begin{solution}
+    La réponse est $715715$. À chaque fois qu'on multiplie
+    un nombre de la forme $d_1d_2\dots d_{n-1}d_n$ à
+    un nombre formé de $1$ séparés entre eux par $n-1$ zéros,
+    on peut juste remplacer chaque $1$ par le nombre qu'on
+    veut multiplier.
+\end{solution}
+
+
+
+
+\begin{exercise}
+    Multiplier $101010101$ par $57$.
+\end{exercise}
+
+\begin{solution}
+    \(5757575757\). En suivant la même logique que l'exercice
+    précédent, on replace tous les $1$ par le nombre.
+\end{solution}
+
+
+\begin{exercise}
+    Multiplier \(101010101\) par \(1020304050\).
+
+    
+    
+\end{exercise}
+
+\begin{solution}
+    En appliquant toujours le même principe, on multiplie
+    avec $10$, \(20\), \(30\), \(40\) et \(50\) et on 
+    ajoute tout après avoir multiplié par $100$ le bon nombre
+    de fois.
+
+    De la même manière que $123\times10 = (1\times10)\times100 + (2\times10)\times10 + (3\times10)\times1$.
+
+    \probline{19}{5050505050}
+    \opline{$+$}{4040404040..}
+    \opline{$+$}{3030303030....}
+    \opline{$+$}{2020202020......}
+    \opline{$+$}{1010101010........}
+    \soluline{103061015141209050}
+\end{solution}
+
+
+\begin{exercise}
+    Multiplier $11111$ par $1111$.
+\end{exercise}
+
+\begin{solution}
+    $11111\times1000 + 11111\times100 + 11111\times10
+    + 11111\times1
+    = 12344321$
+
+    \probline{8}{11111000}
+    \opline{$+$}{1111100}
+    \opline{$+$}{111110}
+    \opline{$+$}{11111}
+    \soluline{12344321}
+\end{solution}
+
+
+
+
+
+
+
+
+
+
 
 
 \section{Systèmes d'équations linéaires}
