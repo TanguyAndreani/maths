@@ -332,28 +332,20 @@ nombres basique et d'algèbre.
 
 \begin{solution}\sidenote{Voir exercice 10. j'ai fais nimp ici.}
     On a $1111111\times x + r = a$,
-
-    On peut multiplier $1111111$ par un nombre composé
-    de uns séparés entre eux par six zéros (nommons le
-    $n$). Combien
-    de uns faut ils pour approcher les cent chiffres?
-
-    $7\times14 = 98$
-
-    On a donc un nombre de $98$ uns divisible par
-    $1111111$. Nommons ce nombre $m = n \times 1111111$.
-
-    On a $m \times 100 + 11 = a$, soit
-    $1111111 \times n \times 100 + 11 = a$.
-
-    Donc $r = 100$.
-
+    
     Voici un one-liner Python pour vérifier:
-
+    
     \texttt{len(str(1111111 * (int("0000001"*14) * 100) + 11))}
+
+    Donc $r = 11$.
 
     Ça m'a l'air assez tiré par les cheveux, ça n'est
     pas une méthode facile.
+
+    J'ai juste utiliser la méthode des exercices précédents
+    pour me rapprocher au maximum du nombre à 100 chiffres.
+    Ensuite j'ai multiplié par 100 pour avoir 100 chiffres
+    et j'ai ajouté 11 pour compléter.
 \end{solution}
 
 
