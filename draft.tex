@@ -22,7 +22,19 @@
 
 \tableofcontents
 
+\section*{État du document}
+
+\begin{itemize}
+    \item Début des exercices d'arithmétiques du livre de Gelfand.
+    \item Un exemple de formatage pour les systèmes d'équations linéaires.
+    \item 
+\end{itemize}
+
 \section{Introduction}
+
+
+
+
 
 \subsection{L'algèbre, l'algèbre linéaire, l'algèbre abstrait}
 
@@ -66,6 +78,10 @@ nombres basique et d'algèbre.
     
     Donc on a $a + b = b + a$ et $ab = ba$.
 }
+
+
+
+
 
 \begin{exercise}
     On veut obtenir 1000 en utilisant que des 8 et des $+$.
@@ -136,6 +152,10 @@ nombres basique et d'algèbre.
     % \end{figure}
 \end{solution}
 
+
+
+
+
 \begin{exercise}
     Trouver tous les termes de l'addition suivante
     ($A$, $B$ et $C$ sont distincts):
@@ -190,6 +210,8 @@ nombres basique et d'algèbre.
 
 
 
+
+
 \begin{exercise}
     Comment trouver la solution pour \(x \times 1001\)
     instantanément? Par exemple avec \(x = 715\).
@@ -206,6 +228,8 @@ nombres basique et d'algèbre.
 
 
 
+
+
 \begin{exercise}
     Multiplier $101010101$ par $57$.
 \end{exercise}
@@ -216,11 +240,10 @@ nombres basique et d'algèbre.
 \end{solution}
 
 
-\begin{exercise}
-    Multiplier \(101010101\) par \(1020304050\).
 
-    
-    
+
+\begin{exercise}
+    Multiplier \(101010101\) par \(1020304050\).    
 \end{exercise}
 
 \begin{solution}
@@ -240,6 +263,10 @@ nombres basique et d'algèbre.
 \end{solution}
 
 
+
+
+
+
 \begin{exercise}
     Multiplier $11111$ par $1111$.
 \end{exercise}
@@ -255,6 +282,11 @@ nombres basique et d'algèbre.
     \opline{$+$}{11111}
     \soluline{12344321}
 \end{solution}
+
+
+
+
+
 
 
 \begin{exercise}
@@ -303,6 +335,8 @@ nombres basique et d'algèbre.
     
     
     
+
+
 \begin{exercise}
     Diviser $123123123$ par $123$.
 \end{exercise}
@@ -325,13 +359,19 @@ nombres basique et d'algèbre.
 \end{solution}
 
 
+
+
+
+
+
 \begin{exercise}
     Peut-on prédire le reste de la division de
     $111...1$ (100 uns, on le nomme $a$) par $1111111$?
+    \sidenote{Voir exercice 10. j'ai fais nimp ici.}
 \end{exercise}
 
 
-\begin{solution}\sidenote{Voir exercice 10. j'ai fais nimp ici.}
+\begin{solution}
     On a $1111111\times x + r = a$,
     
     Voici un one-liner Python pour vérifier:
@@ -343,11 +383,16 @@ nombres basique et d'algèbre.
     Ça m'a l'air assez tiré par les cheveux, ça n'est
     pas une méthode facile.
 
-    J'ai juste utiliser la méthode des exercices précédents
+    J'ai juste utilisé la méthode des exercices précédents
     pour me rapprocher au maximum du nombre à 100 chiffres.
     Ensuite j'ai multiplié par 100 pour avoir 100 chiffres
     et j'ai ajouté 11 pour compléter.
 \end{solution}
+
+
+
+
+
 
 
 \begin{exercise}
@@ -358,9 +403,59 @@ nombres basique et d'algèbre.
     En fait, les deux exercices précédents (10. et 9.)
     étaient juste basé sur la périodicité des chiffres
     du résultat de la division euclidienne\dots
+
+    Le résultat est $14285714\dots$
 \end{solution}
 
 
+
+
+
+\begin{exercise}
+    Expliquer ce que j'ai écris à l'exercice 10.
+\end{exercise}
+
+\begin{solution}
+    J'avais juste à effectuer la division euclidienne et j'aurais
+    vite repéré la périodicité des chiffres du quotient et des restes.
+\end{solution}
+
+
+
+
+\begin{exercise}
+    Diviser $2000\dots000$ (20 zéros), $3000\dots000$ (20 zéros),
+    $4000\dots000$ (20 zéros), etc. par $7$. Comparer les résultats.
+\end{exercise}
+
+\begin{solution}
+    En regardant la division euclidienne de l'exercice 10 posée,
+    On voit qu'on "passe" par les restes
+    $7, 2, 6, 4, 5, 1, 3, 7, 2, \dots$ soit tous les entiers naturels
+    jusqu'à $7$ compris.
+
+    Les quotients qu'on recherche s'obtiennent juste en reprenant le cycle
+    au bon moment (quand le reste coincide avec le premier chiffre.)
+\end{solution}
+
+
+
+
+
+\begin{exercise}
+    Diviser $2000\dots000$ (20 zéros), $3000\dots000$ (20 zéros),
+    $4000\dots000$ (20 zéros), etc. par $7$. Comparer les résultats.
+\end{exercise}
+
+\begin{solution}
+    En regardant la division euclidienne de l'exercice 10 posée,
+    On voit qu'on "passe" par les restes
+    $7, 2, 6, 4, 5, 1, 3, 7, 2, \dots$ soit tous les entiers naturels
+    jusqu'à $7$ compris.
+
+    Les quotients qu'on recherche s'obtiennent juste en reprenant le cycle
+    au bon moment (quand le reste coincide avec le premier chiffre.)
+\end{solution}
 
 
 

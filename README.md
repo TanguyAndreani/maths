@@ -9,10 +9,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ### Added
 
 - "Current state" section of `formal_logic.tex`.
+- Exercises 11 to 13 from Gelfand's *Algebra*.
 
 ### Fixed
 
 - Typos and reformulations in `set_theory.tex`.
+- Typos in `draft.tex` (algebra).
 
 ## 2022-04-27
 
