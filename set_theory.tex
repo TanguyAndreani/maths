@@ -12,8 +12,8 @@
 
 \begin{abstract}
     Plusieurs manières d'aborder la théorie des ensembles 
-    coexistent. Je vais me baser sur les livres \underline{Naive
-    Set Theory} de Paul R. Halmos et \underline{A Book of Set
+    coexistent. Ces notes reposent surtout sur le contenu du
+    livre \underline{A Book of Set
     Theory} de Charles C. Pinter.
 \end{abstract}
 
@@ -27,7 +27,7 @@
 détails historiques dans le texte principal en les écrivant
 plutôt dans la marge.
 
-Il faudra aussi utiliser \texttt{\\colorsquare[red]} dès
+Il faudra aussi utiliser \texttt{\textbackslash colorsquare[red]} dès
 que c'est nécessaire pour créer des repères visuels plus
 faciles à lire.
 
@@ -42,6 +42,9 @@ conception intuitive des ensembles.
 Comment l'approche axiomatique ambitionne de régler ces
 problèmes.
 
+Le paradoxe de Berry me pose problème, dans le doute je passe
+à la suite et je reviendrais dessus.
+
 \section{Introduction}
 
 La théorie des ensembles amène la notion d'ensembles infinis.
@@ -52,8 +55,8 @@ La théorie des ensembles amène la notion d'ensembles infinis.
     \item[L'infini "réel"] où l'on considère une infinité
     d'objets qui existent simultanément. (Paradoxe de Zeno,
     ...)
-    \item[L'infini potentiel] soit la possibilité de
-    dépasser n'importe quantité finie.
+    \item[L'infini potentiel] qui consiste grossièrement en la
+    \emph{capacité à dépasser n'importe quantité finie}.
 \end{description}
 
 À l'époque de Cantor
@@ -72,12 +75,13 @@ les ensembles.
 
 Tout objet mathématique ou presque peut être décrit avec un ensemble et
 toutes les connaissances mathématiques peuvent être prouvées à l'intérieur
-d'\textit{une} théorie des ensembles.
+d'\textit{une} théorie des ensembles
+\sidenote{\url{https://fr.wikipedia.org/wiki/Fondements_des_mathématiques}}
+.
 
 Il existe plus qu'une seule théorie des ensembles, basées sur
 des principes différents et avec des objectifs différents.
 
-Source: \href{https://fr.wikipedia.org/wiki/Fondements_des_math%C3%A9matiques}{Wikipedia/Fondements\_des\_mathématiques}.
 
 \subsection{Paradoxes dans la théorie de Cantor}
 
@@ -88,28 +92,39 @@ et \textit{logiques}.
 \subsection*{Exemple de paradoxe logique: paradoxe de Russell}
 
 Soit $S$ l'ensemble de tous les ensembles qui ne sont pas des éléments
-d'eux même. Si $S$ est un élément de lui même, alors il se contient lui
-même et ne peut pas être dans \(S\)S. Si $S$ n'est pas un élément de lui même,
-alors il est un élément de lui même. C'est une contradiction.
+d'eux même.
 
+\begin{itemize}
+    \item Si $S$ est un élément de lui même, alors il se contient lui
+    même et ne peut pas être dans \(S\).
+    \item Si $S$ n'est pas un élément de lui même,
+    alors il est un élément de lui même.
+\end{itemize}
+
+Ces deux propositions ne peuvent être vraies simultanément; c'est donc une
+contradiction. \\
+\hspace{1pt} \\
 Faut-il remettre en question la notion d'ensemble d'ensembles ?
-Celle d'un ensemble qui se contient lui même? Ou encore celle
-de l'existence de $S$?
+Interdire la formulation d'un ensemble qui se contient lui même ?
+$S$ est-il le seul ensemble concerné ?
 
-\subsection*{Exemple de paradoxe sémantique: paradoxe de Berry}
+\subsection*{Exemple de paradoxe sémantique: paradoxe de Berry
+\sidenote{
+Ce paradoxe me pose problème. J'ai l'impression que je ne le comprends pas
+intuitivement. \\
+Voici un lien qui résume probablement ce que je ne comprends pas:
+\url{https://math.stackexchange.com/questions/1161457/why-is-the-berry-paradox-a-paradox-at-all}}
+}
 
-Soit $T$ l'ensemble de\textit{tous les entiers naturels qui peuvent
-être décris en moins de vingt mots.} Soit $n$
-le\textit{plus petit entier naturel qui ne peut être décris en moins de vingt mots.}
+Soit $T$ l'ensemble de \textit{tous les entiers naturels qui peuvent
+être définis en moins de vingt mots.} Soit $n$
+le \textit{plus petit entier naturel qui ne peut être défini en moins de vingt mots.}
 Cette définition fait quatorze mots. Donc $n$ appartient à $T$ car on peut le décrire
 en quatorze mots et $n$ n'appartient pas à $T$ par la définition de $n$, ce qui est
 une contradiction.
 
-La encore, on est forcés d'admettre que l'ensemble $T$ n'existe pas,
-puisque son existence implique une contradiction.
-
-Comment éviter de créer de tels ensembles? Faut-il restreindre la
-formulation de la définition d'un ensemble ? 
+Comment éviter de créer de tels ensembles ? Faut-il restreindre la
+formulation de la définition d'un ensemble ?
 
 Une tentative de répondre aux paradoxes est la \textit{méthode axiomatique}.
 
