@@ -6,9 +6,13 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## 2022-07-16
 
+### Added
+
+- "Current state" section of `formal_logic.tex`.
+
 ### Fixed
 
-- Typos and reformulations in `set_theory.tex`
+- Typos and reformulations in `set_theory.tex`.
 
 ## 2022-04-27
 
